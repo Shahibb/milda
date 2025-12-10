@@ -15,8 +15,8 @@
         <div class="heart-float" style="bottom: 15%; left: 20%; animation-delay: 2s;">💖</div>
         <div class="heart-float" style="bottom: 25%; right: 10%; animation-delay: 1.5s;">💗</div>
 
-        <h1 class="neon">Happy 1st Anniversary</h1>
-        <p class="subtitle">365 hari bersama, dan masih banyak lagi yang akan datang ❤️</p>
+        <h1 class="neon tilt">Happy 1st Anniversary</h1>
+        <p class="subtitle" id="love"></p>
 
         <div class="countdown" id="countdown">
             <div class="countdown-item">
@@ -85,7 +85,7 @@
     </div>
 
     <div class="section gallery hidden-content" id="gallerySection">
-        <h2 class="section-title">Galeri Kenangan 📸</h2>
+        <h2 class="section-title tilt">Galeri Kenangan 📸</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
                 <img src="img/1.png" alt="">
@@ -143,7 +143,7 @@
             <p style="margin-top: 10px; font-size: 1.2em;">- Your Name -</p>
         </div>
     </div>
-    
+
     <script>
         const anniversaryDate = new Date('January 5, 2026 00:00:00').getTime();
         const unlockDate = new Date('January 5, 2026 00:00:00').getTime();
@@ -243,6 +243,7 @@
             });
         }
 
+        // animasi partikel bintang
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -264,6 +265,98 @@
             requestAnimationFrame(animate);
         }
         animate();
+
+        // animasi trail mengikuti kursor
+        document.addEventListener("mousemove", (e) => {
+            const dot = document.createElement("div");
+            dot.className = "trail";
+            dot.style.left = e.clientX + "px";
+            dot.style.top = e.clientY + "px";
+            document.body.appendChild(dot);
+
+            setTimeout(() => dot.remove(), 600);
+        });
+        // animasi tilt
+        document.querySelectorAll(".tilt").forEach(el => {
+            el.addEventListener("mousemove", (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                el.style.transform = `rotateX(${-y / 20}deg) rotateY(${x / 20}deg) scale(1.05)`;
+            });
+
+            el.addEventListener("mouseleave", () => {
+                el.style.transform = "rotateX(0) rotateY(0) scale(1)";
+            });
+        });
+        // efek ketika diklik
+        function confettiClick(x, y) {
+            const colors = ["#ff006e", "#fb5607", "#ffbe0b", "#8338ec", "#3a86ff"];
+
+            for (let i = 0; i < 25; i++) {
+                const piece = document.createElement("div");
+                piece.style.position = "fixed";
+                piece.style.width = "6px";
+                piece.style.height = "6px";
+                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.left = x + "px";
+                piece.style.top = y + "px";
+                piece.style.opacity = 1;
+                piece.style.pointerEvents = "none";
+                piece.style.transform = "translate(-50%, -50%)";
+                document.body.appendChild(piece);
+
+                const angle = Math.random() * 2 * Math.PI;
+                const radius = Math.random() * 120 + 30;
+
+                const dx = Math.cos(angle) * radius;
+                const dy = Math.sin(angle) * radius;
+
+                piece.animate(
+                    [
+                        { transform: `translate(0, 0)`, opacity: 1 },
+                        { transform: `translate(${dx}px, ${dy}px)`, opacity: 0 }
+                    ],
+                    { duration: 800, easing: "ease-out" }
+                );
+
+                setTimeout(() => piece.remove(), 800);
+            }
+        }
+
+        document.addEventListener("click", (e) => {
+            confettiClick(e.clientX, e.clientY);
+        });
+
+        // animasi hati mengambang
+        function createFloatingHeart() {
+            const heart = document.createElement("div");
+            heart.className = "floating-heart";
+            heart.innerHTML = ["❤️", "💖", "💘", "💕"][Math.floor(Math.random() * 4)];
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 8000);
+        }
+
+        setInterval(createFloatingHeart, 800);
+        // efek teks mengetik sendiri
+        const text = "Halooo sayanggnyaaa akuu, nggak terasa yaa, udah setahun kita bersamaa ❤️";
+        let i = 0;
+
+        function typeLove() {
+            if (i < text.length) {
+                document.getElementById("love").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeLove, 80); // kecepatan ngetik
+            }
+        }
+
+        typeLove();
     </script>
 </body>
 
