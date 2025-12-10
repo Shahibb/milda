@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 1st Anniversary ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="hero">
+        <div class="heart-float" style="top: 10%; left: 10%;">❤️</div>
+        <div class="heart-float" style="top: 20%; right: 15%; animation-delay: 1s;">💕</div>
+        <div class="heart-float" style="bottom: 15%; left: 20%; animation-delay: 2s;">💖</div>
+        <div class="heart-float" style="bottom: 25%; right: 10%; animation-delay: 1.5s;">💗</div>
+
+        <h1 class="neon">Happy 1st Anniversary</h1>
+        <p class="subtitle">365 hari bersama, dan masih banyak lagi yang akan datang ❤️</p>
+
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <span class="number" id="days">00</span>
+                <span class="label">Hari</span>
+            </div>
+            <div class="countdown-item">
+                <span class="number" id="hours">00</span>
+                <span class="label">Jam</span>
+            </div>
+            <div class="countdown-item">
+                <span class="number" id="minutes">00</span>
+                <span class="label">Menit</span>
+            </div>
+            <div class="countdown-item">
+                <span class="number" id="seconds">00</span>
+                <span class="label">Detik</span>
+            </div>
+        </div>
+
+        <p style="font-size: 1.2em; opacity: 0.9; animation: fadeInUp 1s ease 0.9s both;">
+            Menuju 5 Januari 2026 🎉
+        </p>
+
+        <div class="locked-message" id="lockedMessage">
+            <div class="lock-icon">🔒</div>
+            <h3>Ada Kejutan Spesial Menunggumu!</h3>
+            <p>
+                Semua konten spesial akan terbuka pada tanggal <strong>5 Januari 2026</strong>.
+                Sabar ya sayang, akan ada banyak kenangan indah yang menanti! 💝
+            </p>
+        </div>
+    </div>
+
+    <div class="section timeline hidden-content" id="timelineSection">
+        <h2 class="section-title">Perjalanan Kita ✨</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-date">📅 Januari 2025</div>
+                <div class="timeline-content">
+                    Hari pertama kita memulai journey ini bersama. Dimulai dengan senyuman dan harapan untuk masa depan
+                    yang indah.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">📅 Momen Pertama</div>
+                <div class="timeline-content">
+                    Kenangan pertama yang tak terlupakan. Setiap detik bersamamu adalah hadiah yang berharga.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">📅 Petualangan Bersama</div>
+                <div class="timeline-content">
+                    Setiap tempat yang kita kunjungi, setiap pengalaman yang kita lalui, membuat ikatan kita semakin
+                    kuat.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">📅 Desember 2025</div>
+                <div class="timeline-content">
+                    Hampir setahun bersama, dan aku masih jatuh cinta padamu setiap hari. Terima kasih sudah menjadi
+                    bagian terbaik dalam hidupku.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section gallery hidden-content" id="gallerySection">
+        <h2 class="section-title">Galeri Kenangan 📸</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="img/1.png" alt="">
+            </div>
+            <div class="gallery-item">
+                <img src="img/1.png" alt="">
+            </div>
+            <div class="gallery-item">
+                <img src="img/1.png" alt="">
+            </div>
+            <div class="gallery-item">
+                <img src="img/1.png" alt="">
+            </div>
+            <div class="gallery-item">
+                <img src="img/1.png" alt="">
+            </div>
+            <div class="gallery-item">
+                <img src="img/1.png" alt="">
+            </div>
+
+        </div>
+        <p style="text-align: center; font-size: 1.1em; opacity: 0.9;">
+            Setiap foto adalah cerita, setiap cerita adalah kenangan indah bersamamu
+        </p>
+    </div>
+
+    <div class="section video-section hidden-content" id="videoSection">
+        <h2 class="section-title">Video Kenangan Kita 🎬</h2>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video id="loveVideo" controls poster="">
+                    <source src="img/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-size: 1.1em; opacity: 0.9;">
+                Kompilasi momen-momen indah yang kita lalui bersama 💕
+            </p>
+        </div>
+    </div>
+
+    <div class="section love-message hidden-content" id="messageSection">
+        <canvas id="stars" style="position:fixed;top:0;left:0;z-index:-1;"></canvas>
+        <h2 class="section-title">Untukmu 💌</h2>
+        <div class="message-box">
+            <p class="message-text">
+                "Setahun bersama mungkin terlihat singkat, tapi setiap momen bersamamu terasa seperti selamanya.
+                Terima kasih telah menjadi alasan senyumku, teman terbaikku, dan cinta dalam hidupku.
+                Aku berjanji akan terus mencintaimu, hari ini, besok, dan selamanya.
+                Happy 1st Anniversary, sayang! Ini baru permulaan dari banyak anniversary yang akan kita rayakan
+                bersama."
+            </p>
+            <p class="signature">Dengan Cinta, ❤️</p>
+            <p style="margin-top: 10px; font-size: 1.2em;">- Your Name -</p>
+        </div>
+    </div>
+    
+    <script>
+        const anniversaryDate = new Date('January 5, 2026 00:00:00').getTime();
+        const unlockDate = new Date('January 10, 2025 00:00:00').getTime();
+
+        function checkUnlock() {
+            const now = new Date().getTime();
+
+            if (now >= unlockDate) {
+                document.getElementById('lockedMessage').style.display = 'none';
+                document.querySelectorAll('.hidden-content').forEach(el => {
+                    el.classList.remove('hidden-content');
+                });
+            }
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = anniversaryDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<h2 style="font-size: 2em;">🎉 Happy Anniversary! 🎉</h2>';
+            }
+
+            checkUnlock();
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function () {
+                this.style.transform = 'scale(1.1) rotate(5deg)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 300);
+            });
+        });
+
+        const videoUpload = document.getElementById('videoUpload');
+        const videoElement = document.getElementById('loveVideo');
+        const placeholder = document.querySelector('.video-placeholder');
+
+        if (videoUpload) {
+            videoUpload.addEventListener('change', function (e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const url = URL.createObjectURL(file);
+                    videoElement.src = url;
+                    videoElement.load();
+                    placeholder.classList.add('hidden');
+                    videoElement.play();
+                }
+            });
+        }
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // buat hujan hati tiap 200ms
+        setInterval(createHeart, 200);
+
+        const canvas = document.getElementById("stars");
+        const ctx = canvas.getContext("2d");
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+
+        let particles = [];
+
+        for (let i = 0; i < 100; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: Math.random() * 2 + 1,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3
+            });
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = "white";
+                ctx.fill();
+
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0) p.x = canvas.width;
+                if (p.x > canvas.width) p.x = 0;
+                if (p.y < 0) p.y = canvas.height;
+                if (p.y > canvas.height) p.y = 0;
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+
+</html>
