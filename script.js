@@ -1,35 +1,101 @@
 // Configuration
 const CONFIG = {
-    anniversaryDate: new Date('January 5, 2026 00:00:00').getTime(),
-    unlockDate: new Date('January 5, 2026 00:00:00').getTime(),
+    password: "mildacantik", // Ganti dengan kata sandi yang diinginkan
     typingText: "Halooo sayanggnyaaa akuu, nggak terasa yaa, udah setahun kita bersamaa ❤️",
     typingSpeed: 80,
     images: Array.from({length: 8}, (_, i) => `img/galerry/${i + 1}.jpeg`),
     captions: Array.from({length: 8}, (_, i) => `Momen Indah #${i + 1}`)
 };
 
-// Countdown & Unlock
-function checkUnlock() {
-    if (new Date().getTime() >= CONFIG.unlockDate) {
+// Fungsi untuk membuat efek kejutan confetti
+function surpriseEffect() {
+    // Membuat banyak confetti di seluruh layar
+    for (let i = 0; i < 150; i++) {
+        setTimeout(() => {
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            confetti(x, y);
+        }, i * 30); // Delay agar efeknya tidak muncul sekaligus
+    }
+    
+    // Tambahkan efek partikel hati
+    for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+            createParticle("heart", ["❤️", "💖", "💘", "💕", "💗", "💓"][Math.floor(Math.random() * 6)], Math.random() * 3 + 4);
+        }, i * 100);
+    }
+    
+    // Tambahkan efek khusus untuk membuat tampilan teks "SELAMAT!" di tengah layar
+    const successElement = document.createElement("div");
+    successElement.id = "successMessage";
+    successElement.innerHTML = "💖 lope yoouu sayanggnyaa akuu";
+    Object.assign(successElement.style, {
+        position: "fixed",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        fontSize: "2.5em",
+        fontWeight: "bold",
+        color: "#ff6b9d",
+        textAlign: "center",
+        zIndex: "9999",
+        textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+        background: "rgba(255, 255, 255, 0.2)",
+        padding: "30px",
+        borderRadius: "20px",
+        backdropFilter: "blur(10px)",
+        animation: "fadeInOut 3s ease-in-out forwards"
+    });
+    
+    document.body.appendChild(successElement);
+    
+    // Tambahkan animasi CSS untuk pesan
+    const style = document.createElement("style");
+    style.innerHTML = `
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+            20% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            80% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Hapus pesan setelah animasi selesai
+    setTimeout(() => {
+        successElement.remove();
+        style.remove();
+    }, 3000);
+}
+
+// Fungsi untuk membuka konten setelah kata sandi benar
+function unlockContent() {
+    const inputPassword = document.getElementById('passwordInput').value;
+    if (inputPassword === CONFIG.password) {
         document.getElementById('lockedMessage').style.display = 'none';
         document.querySelectorAll('.hidden-content').forEach(el => el.classList.remove('hidden-content'));
+        // Sembunyikan form kata sandi setelah berhasil
+        const passwordForm = document.getElementById('passwordForm');
+        if(passwordForm) {
+            passwordForm.style.display = 'none';
+        }
+        
+        // Tambahkan efek kejutan
+        surpriseEffect();
+    } else {
+        alert('Kata sandi salah! Silakan coba lagi.');
     }
 }
 
-function updateCountdown() {
-    const distance = CONFIG.anniversaryDate - new Date().getTime();
-    
-    if (distance < 0) {
-        document.getElementById('countdown').innerHTML = '<h2 style="font-size: 2em;">🎉 Happy Anniversary! 🎉</h2>';
-        return;
-    }
+// Fungsi untuk mengecek apakah sudah terbuka (jika kata sandi sudah dimasukkan sebelumnya)
+function checkUnlock() {
+    // Tidak perlu mengecek tanggal lagi karena sekarang berbasis kata sandi
+}
 
-    ['days', 'hours', 'minutes', 'seconds'].forEach((unit, i) => {
-        const divisor = [86400000, 3600000, 60000, 1000][i];
-        const value = Math.floor((distance % (divisor * [1, 24, 60, 60][i])) / divisor);
-        document.getElementById(unit).textContent = String(value).padStart(2, '0');
-    });
-    
+// Countdown & Unlock
+function updateCountdown() {
+    // Karena sekarang berbasis kata sandi, kita tidak perlu fungsi countdown
+    // Tapi kita tetap tampilkan pesan bahwa sekarang sistemnya berbasis kata sandi
     checkUnlock();
 }
 
