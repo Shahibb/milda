@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy 1st Anniversary ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="hero">
+        <div class="hero-bg-overlay"></div>
+        
+        <div class="polaroid">
+            <img src="img/galerry/3.jpeg" alt="Us ❤️">
+            <div class="polaroid-caption">Us ❤️</div>
+        </div>
+        
         <div class="heart-float" style="top: 10%; left: 10%;">❤️</div>
         <div class="heart-float" style="top: 20%; right: 15%; animation-delay: 1s;">💕</div>
         <div class="heart-float" style="bottom: 15%; left: 20%; animation-delay: 2s;">💖</div>
         <div class="heart-float" style="bottom: 25%; right: 10%; animation-delay: 1.5s;">💗</div>
 
         <h1 class="neon tilt">Happy 1st Anniversary</h1>
-        <p class="subtitle" id="love"></p>
-
+        
         <div class="countdown" id="countdown">
             <div class="countdown-item">
                 <span class="number" id="days">00</span>
@@ -37,9 +41,7 @@
             </div>
         </div>
 
-        <p style="font-size: 1.2em; opacity: 0.9; animation: fadeInUp 1s ease 0.9s both;">
-            Menuju 5 Januari 2026 🎉
-        </p>
+        <p class="subtitle" id="love"></p>
 
         <div class="locked-message" id="lockedMessage">
             <div class="lock-icon">🔒</div>
@@ -51,65 +53,77 @@
         </div>
     </div>
 
-    <div class="section timeline hidden-content" id="timelineSection">
-        <h2 class="section-title">Perjalanan Kita ✨</h2>
-        <div class="timeline-container">
-            <div class="timeline-item">
-                <div class="timeline-date">📅 Januari 2025</div>
-                <div class="timeline-content">
-                    Hari pertama kita memulai journey ini bersama. Dimulai dengan senyuman dan harapan untuk masa depan
-                    yang indah.
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">📅 Momen Pertama</div>
-                <div class="timeline-content">
-                    Kenangan pertama yang tak terlupakan. Setiap detik bersamamu adalah hadiah yang berharga.
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">📅 Petualangan Bersama</div>
-                <div class="timeline-content">
-                    Setiap tempat yang kita kunjungi, setiap pengalaman yang kita lalui, membuat ikatan kita semakin
-                    kuat.
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">📅 Desember 2025</div>
-                <div class="timeline-content">
-                    Hampir setahun bersama, dan aku masih jatuh cinta padamu setiap hari. Terima kasih sudah menjadi
-                    bagian terbaik dalam hidupku.
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="section gallery hidden-content" id="gallerySection">
         <h2 class="section-title tilt">Galeri Kenangan 📸</h2>
         <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="img/1.png" alt="">
+            <div class="gallery-item" onclick="openLightbox(0)">
+                <img src="img/galerry/1.jpeg" alt="Kenangan Kita">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon">🔍</div>
+                    <div class="gallery-caption">Momen Indah #1</div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="img/1.png" alt="">
+            <div class="gallery-item" onclick="openLightbox(1)">
+                <img src="img/galerry/2.jpeg" alt="Kenangan Kita">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon">🔍</div>
+                    <div class="gallery-caption">Momen Indah #2</div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="img/1.png" alt="">
+            <div class="gallery-item" onclick="openLightbox(2)">
+                <img src="img/galerry/3.jpeg" alt="Kenangan Kita">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon">🔍</div>
+                    <div class="gallery-caption">Momen Indah #3</div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="img/1.png" alt="">
+            <div class="gallery-item" onclick="openLightbox(3)">
+                <img src="img/galerry/4.jpeg" alt="Kenangan Kita">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon">🔍</div>
+                    <div class="gallery-caption">Momen Indah #4</div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="img/1.png" alt="">
+            <div class="gallery-item" onclick="openLightbox(4)">
+                <img src="img/galerry/5.jpeg" alt="Kenangan Kita">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon">🔍</div>
+                    <div class="gallery-caption">Momen Indah #5</div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="img/1.png" alt="">
+            <div class="gallery-item" onclick="openLightbox(5)">
+                <img src="img/galerry/6.jpeg" alt="Kenangan Kita">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon">🔍</div>
+                    <div class="gallery-caption">Momen Indah #6</div>
+                </div>
             </div>
-
+            <div class="gallery-item" onclick="openLightbox(6)">
+                <img src="img/galerry/7.jpeg" alt="Kenangan Kita">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon">🔍</div>
+                    <div class="gallery-caption">Momen Indah #7</div>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(7)">
+                <img src="img/galerry/8.jpeg" alt="Kenangan Kita">
+                <div class="gallery-overlay">
+                    <div class="gallery-icon">🔍</div>
+                    <div class="gallery-caption">Momen Indah #8</div>
+                </div>
+            </div>
         </div>
         <p style="text-align: center; font-size: 1.1em; opacity: 0.9;">
             Setiap foto adalah cerita, setiap cerita adalah kenangan indah bersamamu
         </p>
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">×</span>
+        <span class="lightbox-prev" onclick="changeImage(-1); event.stopPropagation();">❮</span>
+        <span class="lightbox-next" onclick="changeImage(1); event.stopPropagation();">❯</span>
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
 
     <div class="section video-section hidden-content" id="videoSection">
@@ -120,7 +134,6 @@
                     <source src="img/video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-
             </div>
             <p style="text-align: center; margin-top: 30px; font-size: 1.1em; opacity: 0.9;">
                 Kompilasi momen-momen indah yang kita lalui bersama 💕
@@ -144,220 +157,6 @@
         </div>
     </div>
 
-    <script>
-        const anniversaryDate = new Date('January 5, 2026 00:00:00').getTime();
-        const unlockDate = new Date('January 5, 2026 00:00:00').getTime();
-
-        function checkUnlock() {
-            const now = new Date().getTime();
-
-            if (now >= unlockDate) {
-                document.getElementById('lockedMessage').style.display = 'none';
-                document.querySelectorAll('.hidden-content').forEach(el => {
-                    el.classList.remove('hidden-content');
-                });
-            }
-        }
-
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = anniversaryDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-            if (distance < 0) {
-                document.getElementById('countdown').innerHTML = '<h2 style="font-size: 2em;">🎉 Happy Anniversary! 🎉</h2>';
-            }
-
-            checkUnlock();
-        }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', function () {
-                this.style.transform = 'scale(1.1) rotate(5deg)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 300);
-            });
-        });
-
-        const videoUpload = document.getElementById('videoUpload');
-        const videoElement = document.getElementById('loveVideo');
-        const placeholder = document.querySelector('.video-placeholder');
-
-        if (videoUpload) {
-            videoUpload.addEventListener('change', function (e) {
-                const file = e.target.files[0];
-                if (file) {
-                    const url = URL.createObjectURL(file);
-                    videoElement.src = url;
-                    videoElement.load();
-                    placeholder.classList.add('hidden');
-                    videoElement.play();
-                }
-            });
-        }
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-            heart.innerHTML = "❤️";
-
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
-
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }
-
-        // buat hujan hati tiap 200ms
-        setInterval(createHeart, 200);
-
-        const canvas = document.getElementById("stars");
-        const ctx = canvas.getContext("2d");
-        canvas.width = innerWidth;
-        canvas.height = innerHeight;
-
-        let particles = [];
-
-        for (let i = 0; i < 100; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 2 + 1,
-                vx: (Math.random() - 0.5) * 0.3,
-                vy: (Math.random() - 0.5) * 0.3
-            });
-        }
-
-        // animasi partikel bintang
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach(p => {
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = "white";
-                ctx.fill();
-
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < 0) p.x = canvas.width;
-                if (p.x > canvas.width) p.x = 0;
-                if (p.y < 0) p.y = canvas.height;
-                if (p.y > canvas.height) p.y = 0;
-            });
-
-            requestAnimationFrame(animate);
-        }
-        animate();
-
-        // animasi trail mengikuti kursor
-        document.addEventListener("mousemove", (e) => {
-            const dot = document.createElement("div");
-            dot.className = "trail";
-            dot.style.left = e.clientX + "px";
-            dot.style.top = e.clientY + "px";
-            document.body.appendChild(dot);
-
-            setTimeout(() => dot.remove(), 600);
-        });
-        // animasi tilt
-        document.querySelectorAll(".tilt").forEach(el => {
-            el.addEventListener("mousemove", (e) => {
-                const rect = el.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-
-                el.style.transform = `rotateX(${-y / 20}deg) rotateY(${x / 20}deg) scale(1.05)`;
-            });
-
-            el.addEventListener("mouseleave", () => {
-                el.style.transform = "rotateX(0) rotateY(0) scale(1)";
-            });
-        });
-        // efek ketika diklik
-        function confettiClick(x, y) {
-            const colors = ["#ff006e", "#fb5607", "#ffbe0b", "#8338ec", "#3a86ff"];
-
-            for (let i = 0; i < 25; i++) {
-                const piece = document.createElement("div");
-                piece.style.position = "fixed";
-                piece.style.width = "6px";
-                piece.style.height = "6px";
-                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-                piece.style.left = x + "px";
-                piece.style.top = y + "px";
-                piece.style.opacity = 1;
-                piece.style.pointerEvents = "none";
-                piece.style.transform = "translate(-50%, -50%)";
-                document.body.appendChild(piece);
-
-                const angle = Math.random() * 2 * Math.PI;
-                const radius = Math.random() * 120 + 30;
-
-                const dx = Math.cos(angle) * radius;
-                const dy = Math.sin(angle) * radius;
-
-                piece.animate(
-                    [
-                        { transform: `translate(0, 0)`, opacity: 1 },
-                        { transform: `translate(${dx}px, ${dy}px)`, opacity: 0 }
-                    ],
-                    { duration: 800, easing: "ease-out" }
-                );
-
-                setTimeout(() => piece.remove(), 800);
-            }
-        }
-
-        document.addEventListener("click", (e) => {
-            confettiClick(e.clientX, e.clientY);
-        });
-
-        // animasi hati mengambang
-        function createFloatingHeart() {
-            const heart = document.createElement("div");
-            heart.className = "floating-heart";
-            heart.innerHTML = ["❤️", "💖", "💘", "💕"][Math.floor(Math.random() * 4)];
-
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = (5 + Math.random() * 5) + "s";
-
-            document.body.appendChild(heart);
-
-            setTimeout(() => heart.remove(), 8000);
-        }
-
-        setInterval(createFloatingHeart, 800);
-        // efek teks mengetik sendiri
-        const text = "Halooo sayanggnyaaa akuu, nggak terasa yaa, udah setahun kita bersamaa ❤️";
-        let i = 0;
-
-        function typeLove() {
-            if (i < text.length) {
-                document.getElementById("love").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeLove, 80); // kecepatan ngetik
-            }
-        }
-
-        typeLove();
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>

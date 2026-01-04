@@ -20,6 +20,70 @@ body {
     text-align: center;
     padding: 20px;
     position: relative;
+    background-image: url('img/couple-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%);
+    z-index: 0;
+}
+
+/* Polaroid Frame */
+.polaroid {
+    position: absolute;
+    top: 50px;
+    left: 80px;
+    width: 200px;
+    background: #fff;
+    padding: 15px 15px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: rotate(-8deg);
+    animation: polaroidFloat 4s ease-in-out infinite;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.1);
+    box-shadow: 0 15px 40px rgba(255, 0, 100, 0.4);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+}
+
+.polaroid-caption {
+    text-align: center;
+    color: #333;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.3em;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+@keyframes polaroidFloat {
+    0%, 100% {
+        transform: rotate(-8deg) translateY(0);
+    }
+    50% {
+        transform: rotate(-5deg) translateY(-10px);
+    }
+}
+
+.hero h1, .hero .subtitle, .hero .countdown, .hero > p, .locked-message {
+    position: relative;
+    z-index: 100;
 }
 
 .neon {
@@ -42,6 +106,7 @@ body {
     font-size: 30px;
     animation: float 6s ease-in-out infinite;
     opacity: 0.6;
+    z-index: 0;
 }
 
 @keyframes float {
@@ -98,6 +163,8 @@ h1 {
     gap: 20px;
     margin: 40px 0;
     animation: fadeInUp 1s ease 0.6s both;
+    position: relative;
+    z-index: 10;
 }
 
 .countdown-item {
@@ -106,6 +173,8 @@ h1 {
     padding: 20px 30px;
     border-radius: 15px;
     min-width: 100px;
+    position: relative;
+    z-index: 10;
 }
 
 .countdown-item .number {
@@ -210,42 +279,193 @@ h1 {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
     max-width: 1200px;
     margin: 40px auto;
+    padding: 20px;
 }
 
 .gallery-item {
     position: relative;
-    padding-bottom: 100%;
-    border-radius: 15px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, #ff6b9d, #ffc371, #ff6b9d);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.4);
 }
 
-.gallery-placeholder {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3em;
+.gallery-item:hover::before {
+    opacity: 1;
 }
 
 .gallery-item img {
-    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Gallery Overlay */
+.gallery-overlay {
+    position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+    animation: zoomPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes zoomPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.gallery-caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    background: rgba(255, 107, 157, 0.8);
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+}
+
+/* Lightbox Modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(255, 107, 157, 0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    font-size: 50px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-weight: 300;
+}
+
+.lightbox-close:hover {
+    color: #ff6b9d;
+}
+
+.lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: #fff;
+    cursor: pointer;
+    padding: 20px;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.lightbox-prev:hover, .lightbox-next:hover {
+    color: #ff6b9d;
+    transform: translateY(-50%) scale(1.2);
+}
+
+.lightbox-prev {
+    left: 30px;
+}
+
+.lightbox-next {
+    right: 30px;
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.5em;
+    background: rgba(255, 107, 157, 0.8);
+    padding: 15px 30px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
 }
 
 .love-message {
@@ -414,6 +634,166 @@ h1 {
     }
 }
 
+/* ========== MAGAZINE SECTION STYLES ========== */
+.magazine-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+}
+
+.magazine-container {
+    perspective: 2000px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.magazine-wrapper {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    transform-style: preserve-3d;
+}
+
+.magazine-book {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform-style: preserve-3d;
+    transform-origin: left center;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.page-left {
+    left: 0;
+    border-radius: 10px 0 0 10px;
+}
+
+.page-right {
+    right: 0;
+    transform-origin: right center;
+    border-radius: 0 10px 10px 0;
+}
+
+.page-content {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-content img {
+    max-width: 80%;
+    max-height: 60%;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.page-content h2 {
+    color: #667eea;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.page-content p {
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.cover-page {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+}
+
+.cover-page h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.cover-page p {
+    font-size: 1.5em;
+    color: #ffd700;
+}
+
+.heart-deco {
+    font-size: 3em;
+    margin: 20px 0;
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: #667eea;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background: #fff;
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-number {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #999;
+    font-size: 0.9em;
+}
+
+.flip-left {
+    transform: rotateY(-180deg);
+}
+
+.flip-right {
+    transform: rotateY(180deg);
+}
+
 /* RESPONSIVE MEDIUM (max 768px) */
 @media (max-width: 768px) {
 
@@ -483,7 +863,6 @@ h1 {
     .gallery {
         width: 100%;
         padding: 40px 10px;
-        /* rapikan padding */
     }
 
     .gallery-grid {
@@ -491,7 +870,6 @@ h1 {
         max-width: 100% !important;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        /* 3 kolom responsif */
         gap: 10px;
         justify-items: center;
     }
@@ -499,10 +877,8 @@ h1 {
     .gallery-item {
         width: 100%;
         max-width: 100px;
-        /* ukuran foto ideal HP */
         height: 100px;
         padding-bottom: 0;
-        /* hapus square fix */
     }
 
     .gallery-item img {
@@ -535,6 +911,36 @@ h1 {
     .signature {
         font-size: 1.2em;
     }
+
+    /* Magazine Responsive */
+    .magazine-wrapper {
+        height: 500px;
+    }
+
+    .page-content {
+        padding: 20px;
+    }
+
+    .page-content h2 {
+        font-size: 1.4em;
+    }
+
+    .page-content p {
+        font-size: 0.95em;
+    }
+
+    .cover-page h1 {
+        font-size: 2em;
+    }
+
+    .cover-page p {
+        font-size: 1.2em;
+    }
+
+    .nav-btn {
+        padding: 12px 24px;
+        font-size: 1em;
+    }
 }
 
 /* RESPONSIVE EXTRA SMALL (max 480px) */
@@ -558,5 +964,26 @@ h1 {
 
     .message-box {
         padding: 15px;
+    }
+
+    /* Magazine Extra Small */
+    .magazine-wrapper {
+        height: 400px;
+    }
+
+    .page-content {
+        padding: 15px;
+    }
+
+    .page-content img {
+        max-height: 50%;
+    }
+
+    .cover-page h1 {
+        font-size: 1.5em;
+    }
+
+    .heart-deco {
+        font-size: 2em;
     }
 }
