@@ -227,54 +227,6 @@ h1 {
     }
 }
 
-/* Styling untuk form kata sandi */
-#passwordForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-#passwordInput {
-    padding: 15px;
-    margin: 10px;
-    width: 300px;
-    font-size: 16px;
-    text-align: center;
-    border-radius: 10px;
-    border: 2px solid #fff;
-    background: rgba(255, 255, 255, 0.9);
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-#passwordInput:focus {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(255, 107, 157, 0.5);
-}
-
-.btn {
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    border: 2px solid #fff;
-    color: #fff;
-    padding: 15px 40px;
-    font-size: 1.1em;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.btn:hover {
-    background: #fff;
-    color: #667eea;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
 .section {
     min-height: 100vh;
     padding: 80px 20px;
@@ -548,6 +500,28 @@ h1 {
     font-size: 2.5em;
     margin-bottom: 50px;
     text-align: center;
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #667eea;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .video-section {
@@ -824,3 +798,192 @@ h1 {
 @media (max-width: 768px) {
 
     /* Hero Title */
+    h1 {
+        font-size: 2.2em;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
+        padding: 0 10px;
+    }
+
+    /* Countdown Items */
+    .countdown {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+        padding: 12px 15px;
+    }
+
+    .countdown-item .number {
+        font-size: 2em;
+    }
+
+    /* Locked Message */
+    .locked-message {
+        width: 90%;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .locked-message h3 {
+        font-size: 1.4em;
+    }
+
+    .locked-message p {
+        font-size: 1em;
+    }
+
+    /* Section Title */
+    .section-title {
+        font-size: 1.8em;
+        margin-bottom: 30px;
+    }
+
+    /* Timeline Items */
+    .timeline-item {
+        padding: 20px;
+        margin: 20px 0;
+    }
+
+    .timeline-date {
+        font-size: 1em;
+    }
+
+    .timeline-content {
+        font-size: 1em;
+    }
+
+    /* Gallery */
+    .gallery {
+        width: 100%;
+        padding: 40px 10px;
+    }
+
+    .gallery-grid {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        justify-items: center;
+    }
+
+    .gallery-item {
+        width: 100%;
+        max-width: 100px;
+        height: 100px;
+        padding-bottom: 0;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Video */
+    .video-container {
+        max-width: 100%;
+        width: 90%;
+    }
+
+    .video-wrapper {
+        border-radius: 15px;
+    }
+
+    /* Love Message */
+    .message-box {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .message-text {
+        font-size: 1em;
+        text-align: justify;
+    }
+
+    .signature {
+        font-size: 1.2em;
+    }
+
+    /* Magazine Responsive */
+    .magazine-wrapper {
+        height: 500px;
+    }
+
+    .page-content {
+        padding: 20px;
+    }
+
+    .page-content h2 {
+        font-size: 1.4em;
+    }
+
+    .page-content p {
+        font-size: 0.95em;
+    }
+
+    .cover-page h1 {
+        font-size: 2em;
+    }
+
+    .cover-page p {
+        font-size: 1.2em;
+    }
+
+    .nav-btn {
+        padding: 12px 24px;
+        font-size: 1em;
+    }
+}
+
+/* RESPONSIVE EXTRA SMALL (max 480px) */
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .countdown-item .number {
+        font-size: 1.7em;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .message-box {
+        padding: 15px;
+    }
+
+    /* Magazine Extra Small */
+    .magazine-wrapper {
+        height: 400px;
+    }
+
+    .page-content {
+        padding: 15px;
+    }
+
+    .page-content img {
+        max-height: 50%;
+    }
+
+    .cover-page h1 {
+        font-size: 1.5em;
+    }
+
+    .heart-deco {
+        font-size: 2em;
+    }
+}

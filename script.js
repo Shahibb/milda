@@ -28,7 +28,7 @@ function surpriseEffect() {
     // Tambahkan efek khusus untuk membuat tampilan teks "SELAMAT!" di tengah layar
     const successElement = document.createElement("div");
     successElement.id = "successMessage";
-    successElement.innerHTML = "💖 lope yoouu sayanggnyaa akuu";
+    successElement.innerHTML = "🎉 Yeaaayyyy 🎉<br> lope youu sayangnyaa akuu 💖";
     Object.assign(successElement.style, {
         position: "fixed",
         top: "50%",
@@ -87,16 +87,16 @@ function unlockContent() {
     }
 }
 
-// Fungsi untuk mengecek apakah sudah terbuka (jika kata sandi sudah dimasukkan sebelumnya)
-function checkUnlock() {
-    // Tidak perlu mengecek tanggal lagi karena sekarang berbasis kata sandi
-}
-
 // Countdown & Unlock
 function updateCountdown() {
-    // Karena sekarang berbasis kata sandi, kita tidak perlu fungsi countdown
-    // Tapi kita tetap tampilkan pesan bahwa sekarang sistemnya berbasis kata sandi
-    checkUnlock();
+    const distance = CONFIG.anniversaryDate - new Date().getTime();
+    
+
+    ['days', 'hours', 'minutes', 'seconds'].forEach((unit, i) => {
+        const divisor = [86400000, 3600000, 60000, 1000][i];
+        const value = Math.floor((distance % (divisor * [1, 24, 60, 60][i])) / divisor);
+        document.getElementById(unit).textContent = String(value).padStart(2, '0');
+    });
 }
 
 // Typing Effect
@@ -209,8 +209,7 @@ function confetti(x, y) {
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    // Hanya panggil typingEffect dan initStars karena countdown sudah dihapus
     typingEffect();
     initStars();
 
