@@ -1,7 +1,7 @@
 // Configuration
 const CONFIG = {
     anniversaryDate: new Date('January 5, 2026 00:00:00').getTime(),
-    unlockDate: new Date('January 4, 2026 00:00:00').getTime(),
+    unlockDate: new Date('January 5, 2026 00:00:00').getTime(),
     typingText: "Halooo sayanggnyaaa akuu, nggak terasa yaa, udah setahun kita bersamaa ❤️",
     typingSpeed: 80,
     images: Array.from({length: 8}, (_, i) => `img/galerry/${i + 1}.jpeg`),
