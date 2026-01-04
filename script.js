@@ -3,8 +3,26 @@ const CONFIG = {
     password: "mildacantik", // Ganti dengan kata sandi yang diinginkan
     typingText: "Halooo sayanggnyaaa akuu, nggak terasa yaa, udah setahun kita bersamaa ❤️",
     typingSpeed: 80,
-    images: Array.from({length: 8}, (_, i) => `img/galerry/${i + 1}.jpeg`),
-    captions: Array.from({length: 8}, (_, i) => `Momen Indah #${i + 1}`)
+    images: [
+        'img/galerry/1.jpeg',
+        'img/galerry/2.jpeg',
+        'img/galerry/3.jpeg',
+        'img/galerry/4.jpeg',
+        'img/galerry/5.jpeg',
+        'img/galerry/6.jpeg',
+        'img/galerry/7.jpeg',
+        'img/galerry/8.jpeg'
+    ],
+    captions: [
+        'Day 1 kencannn hehe',
+        'ihhh, luctunaaa',
+        'untung gaada satpam hehe',
+        'hishh cantik bangett sii',
+        'wihh aku lagi ultahhh haha',
+        'wleee haha',
+        'yuhuuuu',
+        'hishhh gemes banget sii'
+    ]
 };
 
 // Fungsi untuk membuat efek kejutan confetti
